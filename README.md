@@ -1,1 +1,1 @@
-# ProcessamentoGraficoPojeto1
+# Projetos da disciplina Processamento Grafico
