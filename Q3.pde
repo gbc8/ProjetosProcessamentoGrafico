@@ -46,7 +46,7 @@ void draw(){
   }
   x = r1*cos(w1);
   y = r1*sin(w1);
-  w1 += PI/120;
+  w1 += PI/200;
   r1 += r2/180;
   if(y < -300){
     clear();
