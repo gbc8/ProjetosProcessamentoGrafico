@@ -1,20 +1,15 @@
-float r1;
-float r2;
+float r,px;
 float x;
 float y;
-float w1;
-float w2;
-
+float w;
 void setup(){
   background(255);
   size(800,600);
   frameRate(60);
-  w1 = 0;
-  w2 = 0;
+  w = 0;
   x = -20;
   y = 0;
-  r1 = -20;
-  r2 = -20;
+  r = -20;
 }
 
 void setBackground(){
@@ -27,13 +22,12 @@ void setBackground(){
 }
 
 void clear(){
-   background(255);
-   w1 = 0;
-   w2 = 0;
-   x = -20;
-   y = 0;
-   r1 = -20;
-   r2 = -20;
+  background(255);
+  w = 0;
+  x = -20;
+  y = 0;
+  r = -20;
+  px = 0;
 }
 
 void draw(){
@@ -41,13 +35,14 @@ void draw(){
   stroke(0,128,0);
   strokeWeight(10);
   point(x,y);
-  if((y > 0 && r1*sin(w1) < 0) ||(y < 0 && r1*sin(w1) > 0) ){
-    r2 *= 2;
+  if((y > 0 && r*sin(w) < 0) ||(y < 0 && r*sin(w) > 0) ){
+    if(y > 0) px -= r;
+    else px += r;
+    r *= 2;
   }
-  x = r1*cos(w1);
-  y = r1*sin(w1);
-  w1 += PI/200;
-  r1 += r2/180;
+  x = px + r*cos(w);
+  y = r*sin(w);
+  w += PI/200;
   if(y < -300){
     clear();
   }
